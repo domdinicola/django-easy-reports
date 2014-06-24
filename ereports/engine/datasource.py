@@ -72,7 +72,7 @@ class Datasource(object):
         model = initkwargs.get('model', cls.model)
         _columns = initkwargs.get('columns', cls.columns)
 
-        if queryset:
+        if queryset.exists():
             model = queryset.model
         elif model is None:
             raise ImproperlyConfigured(u"%(cls)s is missing a queryset. Define "
